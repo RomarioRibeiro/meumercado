@@ -1,17 +1,21 @@
 package com.meuMercado.resource;
 
+import java.net.URI;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import com.meuMercado.domain.Departamento;
 import com.meuMercado.service.DepartamentoService;
 
 @RestController
-@RequestMapping(value = "/categorias")
+@RequestMapping(value = "/departamentos")
 public class DepartamentoResource {
 	@Autowired
 	private DepartamentoService service;
@@ -23,5 +27,19 @@ public class DepartamentoResource {
 		return ResponseEntity.ok().body(obj);
 				
 	}
+	@RequestMapping(method=RequestMethod.POST)
+	public ResponseEntity<Void> Insert( @RequestBody Departamento obj) {
+		obj = service.Insert(obj);
+		URI uri = ServletUriComponentsBuilder.fromCurrentRequest()
+			.path("/{id}").buildAndExpand(obj.getId()).toUri();
+		return ResponseEntity.created(uri).build();
+	}
+	@RequestMapping(method = RequestMethod.PUT)
+	public ResponseEntity<Void> update (@RequestBody Departamento obj,@PathVariable Integer id){
+		obj.setId(id);
+		obj=service.update(obj);
+		return ResponseEntity.noContent().build();
+	}
+	
 	
 }

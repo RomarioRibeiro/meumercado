@@ -18,5 +18,11 @@ public class ProdutoService {
 		return obj.orElseThrow(() -> new ObjetoException(
 				"Objeto não encontrado! Id: " + id ));
 	}
-	
+	public Produto insert (Produto obj) {
+		return repo.save(obj);
+	}
+	public Produto update(Produto obj) {
+		find(obj.getId());
+		return repo.save(obj);
+	}
 }

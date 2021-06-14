@@ -17,4 +17,11 @@ public class UsuarioService {
 		Optional<Usuario> obj = repo.findById(id);
 		return obj.orElseThrow(() -> new ObjetoException("Objeto não encontrado! Id:" + id));
 	}
+	public Usuario insert (Usuario obj) {
+		return repo.save(obj);
+	}
+	public Usuario update (Usuario obj) {
+		find(obj.getId());
+		return repo.save(obj);
+	}
 }

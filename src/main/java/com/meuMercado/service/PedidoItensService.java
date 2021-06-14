@@ -18,5 +18,10 @@ public class PedidoItensService {
 		return obj.orElseThrow(() -> new ObjetoException(
 				"Objeto não encontrado! Id: " + id ));
 	}
-	
+	public PedidoItens insert(PedidoItens obj) {
+		return repo.save(obj);
+	}
+	public PedidoItens update (PedidoItens obj) {
+		return repo.save(obj);
+	}
 }

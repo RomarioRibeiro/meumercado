@@ -18,5 +18,11 @@ public class EnderecoService {
 		return obj.orElseThrow(() -> new ObjetoException(
 				"Objeto não encontrado! Id: " + id ));
 	}
-	
+	public Endereco insert(Endereco obj) {
+		return repo.save(obj);
+	}
+	public Endereco update (Endereco obj) {
+		find(obj.getId());
+		return repo.save(obj);
+	}
 }

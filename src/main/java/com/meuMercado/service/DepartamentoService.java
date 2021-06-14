@@ -19,4 +19,13 @@ public class DepartamentoService {
 				"Objeto não encontrado! Id: " + id ));
 	}
 	
+	public Departamento Insert (Departamento obj) {
+		return repo.save(obj);
+	}
+	public Departamento update(Departamento obj) {
+		find(obj.getId());
+		return repo.save(obj);
+	}
+	
 }
+

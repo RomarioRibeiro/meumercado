@@ -19,5 +19,12 @@ public class MercadoService {
 		
 		return obj.orElseThrow(() -> new ObjetoException("Objeto não encontrado! Id:" + id));
 	}
+	public Mercado insert(Mercado obj) {
+		return repo.save(obj);
+	}
 	
+	public Mercado update (Mercado obj) {
+		find(obj.getId());
+		return repo.save(obj);
+	}
 }
