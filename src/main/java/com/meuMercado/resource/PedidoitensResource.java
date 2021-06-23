@@ -20,7 +20,7 @@ public class PedidoitensResource {
 	@Autowired
 	private PedidoItensService service;
 	
-	@RequestMapping(value="{/id}", method = RequestMethod.GET)
+	@RequestMapping(value="/{id}", method = RequestMethod.GET)
 	public ResponseEntity<?> find(@PathVariable Integer id) {
 		
 		PedidoItens obj = service.find(id);

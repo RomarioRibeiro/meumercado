@@ -20,7 +20,7 @@ public class ProdutoResource {
 	@Autowired
 	private ProdutoService service;
 	
-	@RequestMapping(value="{/id}", method = RequestMethod.GET)
+	@RequestMapping(value="/{id}", method = RequestMethod.GET)
 	public ResponseEntity<?> find(@PathVariable Integer id) {
 		
 		Produto obj = service.find(id);

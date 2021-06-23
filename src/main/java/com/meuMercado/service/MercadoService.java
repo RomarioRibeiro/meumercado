@@ -1,12 +1,9 @@
 package com.meuMercado.service;
 
-import java.util.Optional;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.meuMercado.domain.Mercado;
-import com.meuMercado.exception.ObjetoException;
 import com.meuMercado.repository.MercadoRepository;
 @Service
 public class MercadoService {
@@ -15,9 +12,9 @@ public class MercadoService {
 	
 	public Mercado find(Integer id) {
 		
-		Optional<Mercado> obj = repo.findById(id);
+		Mercado obj = repo.findPorld(id);
 		
-		return obj.orElseThrow(() -> new ObjetoException("Objeto não encontrado! Id:" + id));
+		return obj;
 	}
 	public Mercado insert(Mercado obj) {
 		return repo.save(obj);

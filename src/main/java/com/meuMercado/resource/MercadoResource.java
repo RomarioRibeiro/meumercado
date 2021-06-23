@@ -8,7 +8,6 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
@@ -21,7 +20,7 @@ public class MercadoResource {
 	@Autowired
 	private MercadoService service;
 	
-	@RequestMapping(value = "{/id}" , method = RequestMethod.GET)
+	@RequestMapping(value = "/{id}" , method = RequestMethod.GET)
 	public ResponseEntity<?> find(@PathVariable Integer id){
 		
 		Mercado obj= service.find(id);

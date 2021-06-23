@@ -20,7 +20,7 @@ public class Usuarioresource {
 	@Autowired
 	private UsuarioService service;
 
-	@RequestMapping(value = "{/id}", method = RequestMethod.GET)
+	@RequestMapping(value = "/{id}", method = RequestMethod.GET)
 	public ResponseEntity<?> find(@PathVariable Integer id) {
 
 		Usuario obj = service.find(id);
