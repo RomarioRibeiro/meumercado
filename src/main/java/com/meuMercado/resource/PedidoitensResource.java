@@ -33,7 +33,7 @@ public class PedidoitensResource {
 		URI uri= ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}").buildAndExpand(obj.getId()).toUri();
 		return ResponseEntity.created(uri).build();
 	}
-	@RequestMapping(method = RequestMethod.PUT)
+	@RequestMapping(value = "/{id}",method = RequestMethod.PUT)
 	public ResponseEntity<Void> update (@RequestBody PedidoItens obj ,@PathVariable Integer id){
 		obj.setId(null);
 		obj = service.update(obj);
