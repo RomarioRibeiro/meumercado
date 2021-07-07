@@ -1,0 +1,33 @@
+set foreign_key_checks = 0;
+SET SQL_SAFE_UPDATES=0;
+
+delete from categoria;
+delete from departamento;
+delete from endereco;
+delete from usuario;
+delete from pedido;
+delete from pedido_itens;
+
+
+
+set foreign_key_checks = 1;
+alter table categoria auto_increment = 1;
+alter table departamento auto_increment = 1;
+
+
+
+INSERT INTO departamento (id, descricao) VALUES
+ ('1', 'Frios'),
+ ('2', 'Frutas'),
+ ('3', 'Verduras'),
+ ('4', 'Higiêne Pessoal'),
+ ('5', 'Graos'),
+ ('6', 'Bebidas');
+ 
+ 
+ INSERT INTO categoria (id, descricao, departamento_id) VALUES 
+ ('1', 'Alcatra', '1'),
+ ('2', 'Arroz', '5'),
+ ('3', 'Maçã', '2'),
+ ('4', 'Banana', '2'),
+ ('5', 'Queijo', '1');
