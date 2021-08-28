@@ -10,6 +10,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 
 import org.springframework.format.annotation.DateTimeFormat;
 @Entity
@@ -31,7 +32,7 @@ public class Pedido  implements Serializable{
 
 	@ManyToOne
 	private Usuario usuario;
-	@ManyToOne
+	@OneToOne
 	private Mercado mercado;
 	
 	private String tipoPagamento;

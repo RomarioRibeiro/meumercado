@@ -15,6 +15,10 @@ alter table categoria auto_increment = 1;
 alter table departamento auto_increment = 1;
 alter table usuario auto_increment = 1;
 alter table mercado auto_increment = 1;
+alter table endereco auto_increment = 1;
+alter table pedido auto_increment= 1;
+alter table produto auto_increment = 1;
+alter table pedido_itens auto_increment = 1;
 
 
 
@@ -36,8 +40,20 @@ INSERT INTO departamento (id, descricao) VALUES
  
  
  INSERT INTO usuario (id, club_mercado ,cpf_ou_cnpj , data_nascimento , email , nome , senha , sexo, telefone , whats, endereco_id, mercado_id) VALUES
- ('1' ,'nao' ,'43003416804','1997-05-01','romario@gmail.com' ,'romario ribeiro' , '1234' , 'masculino' , 'nao','4399567543', '1' , '1');
+ ('1' ,'nao' ,'43003416804','1997-05-01','romario@gmail.com' ,'romario ribeiro' , '1234' , 'masculino' , 'nao','4399567543', '1');
  
  
  INSERT INTO mercado (id , cpf_ou_cnpj , email, fantasia , razao_social) VALUES
  ('1' , '123435469' , 'mercado@gmail.com ' , 'sao pedro' , '1223435');
+ 
+ INSERT INTO  endereco ( id , bairro ,cep , cidade , complemento , latitude , logradouro , longetude , numero , sigla , mercadp_id , usuario_id) VALUES 
+ ('1' , 'acacia' , '12345678' , 'sabaudia' , 'gas' , '123' , 'espanha' , '344' , '137' , 'pr' , '1' , '1');
+ 
+ INSERT INTO pedido (id , data_entrega , hora_entrega , preco_total_estimado , status , tipo_pagamento ,troco_para , mercado_id , usuario_id) VALUES 
+ ('1' , ' 2021-08-29' , '12:00:00' , '30.00' , 'enviado' , 'dinheiro' , 'nao' , '1' , '1' );
+ 
+ INSERT INTO produto ( id , descricao , imagem , percentual_desconto , preco, preco_club , promocao , unidade _medida , categoria_id , mercado_id)  VALUES
+ ('1' , 'fruta' , 'frutas', '5.0' , ' 31.00 , '00.00' , '5' , '13' , '1' , '1'); 
+ 
+ INSERT INTO pedido_itens (preco_unitario , quantidade , pedido_id , produto_id) VALUES
+ ('30.00' , '13' , '1 ' , '1');

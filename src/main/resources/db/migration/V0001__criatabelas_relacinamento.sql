@@ -1,17 +1,18 @@
-
-    create table categoria (
+create table categoria (
        id integer not null auto_increment,
         descricao varchar(255),
         departamento_id integer,
         primary key (id)
-    ) engine=InnoDB default charset=utf8MB4; 
-
+    ) engine=InnoDB default charset=utf8MB4;
+ 
+    
     create table departamento (
        id integer not null auto_increment,
         descricao varchar(255),
         primary key (id)
-    ) engine=InnoDB default charset=utf8MB4; 
-
+    ) engine=InnoDB default charset=utf8MB4;
+ 
+    
     create table endereco (
        id integer not null auto_increment,
         bairro varchar(255),
@@ -26,8 +27,9 @@
         mercado_id integer,
         usuario_id integer,
         primary key (id)
-    ) engine=InnoDB default charset=utf8MB4; 
-
+    ) engine=InnoDB default charset=utf8MB4;
+ 
+    
     create table mercado (
        id integer not null auto_increment,
         cpf_ou_cnpj varchar(255),
@@ -35,8 +37,9 @@
         fantasia varchar(255),
         razao_social varchar(255),
         primary key (id)
-    ) engine=InnoDB default charset=utf8MB4; 
-
+    ) engine=InnoDB default charset=utf8MB4;
+ 
+    
     create table pedido (
        id integer not null auto_increment,
         data_entrega date,
@@ -48,16 +51,18 @@
         mercado_id integer,
         usuario_id integer,
         primary key (id)
-    ) engine=InnoDB default charset=utf8MB4; 
-
+    ) engine=InnoDB default charset=utf8MB4;
+ 
+    
     create table pedido_itens (
        preco_unitario decimal(19,2),
         quantidade integer,
         pedido_id integer not null,
         produto_id integer not null,
         primary key (pedido_id, produto_id)
-    ) engine=InnoDB default charset=utf8MB4; 
-
+    ) engine=InnoDB default charset=utf8MB4;
+ 
+    
     create table produto (
        id integer not null auto_increment,
         descricao varchar(255),
@@ -70,40 +75,45 @@
         categoria_id integer,
         mercado_id integer,
         primary key (id)
-    ) engine=InnoDB default charset=utf8MB4; 
-
+    ) engine=InnoDB default charset=utf8MB4;
+ 
+    
     create table usuario (
        id integer not null auto_increment,
         club_mercado varchar(255),
         cpf_ou_cnpj varchar(255),
         data_nascimento datetime(6),
         email varchar(255),
+        endereco tinyblob,
         nome varchar(255),
         senha varchar(255),
         sexo varchar(255),
         telefone varchar(255),
         whats varchar(255),
-        endereco_id integer,
         mercado_id integer,
         primary key (id)
-    ) engine=InnoDB default charset=utf8MB4; 
-
+    ) engine=InnoDB default charset=utf8MB4;
+ 
+    
     alter table categoria 
        add constraint FKDepartamento_Categoria 
        foreign key (departamento_id) 
        references departamento (id);
-
+ 
+    
     alter table endereco 
        add constraint FKMercado_Endereco 
        foreign key (mercado_id) 
        references mercado (id);
-
+ 
+    
     alter table endereco 
-       add constraint FKusuario_Endereco 
+       add constraint FKUsuario_endereco
        foreign key (usuario_id) 
        references usuario (id);
-
-    alter table pedido 
+       
+       
+         alter table pedido 
        add constraint FK7Mercado_Pedido 
        foreign key (mercado_id) 
        references mercado (id);
@@ -132,15 +142,10 @@
        add constraint FKMercado_Produto 
        foreign key (mercado_id) 
        references mercado (id);
-
+       
+        
     alter table usuario 
-       add constraint FKEndereco_usuario 
-       foreign key (endereco_id) 
-       references endereco (id);
-
-    alter table usuario 
-       add constraint FKMercado_Usuario 
+       add constraint FKMercado_usuario 
        foreign key (mercado_id) 
        references mercado (id);
-
     
