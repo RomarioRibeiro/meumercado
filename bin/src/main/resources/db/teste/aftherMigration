@@ -13,6 +13,8 @@ delete from pedido_itens;
 set foreign_key_checks = 1;
 alter table categoria auto_increment = 1;
 alter table departamento auto_increment = 1;
+alter table usuario auto_increment = 1;
+alter table mercado auto_increment = 1;
 
 
 
@@ -31,3 +33,11 @@ INSERT INTO departamento (id, descricao) VALUES
  ('3', 'Maçã', '2'),
  ('4', 'Banana', '2'),
  ('5', 'Queijo', '1');
+ 
+ 
+ INSERT INTO usuario (id, club_mercado ,cpf_ou_cnpj , data_nascimento , email , nome , senha , sexo, telefone , whats, endereco_id, mercado_id) VALUES
+ ('1' ,'NO' ,'43003416804','1997-05-01','romario@gmail.com' ,'romario ribeiro' , '1234' , 'masculino' 'no','4399567543');
+ 
+ 
+ INSERT INTO mercado (id , cpf_ou_cnpj , email, fantasia , razao_social) VALUES
+ ('1' , '123435469' , 'mercado@gmail.com ' , 'sao pedro' , '1223435');

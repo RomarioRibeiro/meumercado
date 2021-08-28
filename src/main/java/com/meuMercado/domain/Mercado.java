@@ -20,6 +20,7 @@ public class Mercado implements Serializable{
 	private String fantasia;
 	private String email;
 	
+
 	
 	
 	

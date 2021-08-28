@@ -6,8 +6,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 
 @Entity
 public class Endereco implements Serializable{
@@ -26,12 +25,10 @@ public class Endereco implements Serializable{
 	private String longitude;
 	private String latitude;
 	
-	@ManyToOne
-	@JoinColumn(name = "usuario_id")
+	@OneToOne
 	private Usuario usuario;
 	
-	@ManyToOne
-	@JoinColumn(name = "mercado_id")
+	@OneToOne
 	private Mercado mercado;
 	
 	public Endereco() {

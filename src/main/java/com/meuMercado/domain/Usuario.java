@@ -3,12 +3,10 @@ package com.meuMercado.domain;
 import java.io.Serializable;
 import java.util.Date;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 
 @Entity
@@ -26,7 +24,7 @@ public class Usuario implements Serializable{
 	private String sexo;
 	private String senha;
 	private String clubMercado;
-	@ManyToOne
+	@OneToOne
 	private Mercado mercado;
 	
 	public Mercado getMercado() {
@@ -39,7 +37,9 @@ public class Usuario implements Serializable{
 	}
 
 
-	@OneToOne(cascade=CascadeType.ALL)
+	
+	
+	
 	private Endereco endereco;
 	
 	public Usuario() { 

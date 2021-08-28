@@ -36,7 +36,7 @@ INSERT INTO departamento (id, descricao) VALUES
  
  
  INSERT INTO usuario (id, club_mercado ,cpf_ou_cnpj , data_nascimento , email , nome , senha , sexo, telefone , whats, endereco_id, mercado_id) VALUES
- ('1' ,'NO' ,'43003416804','1997-05-01','romario@gmail.com' ,'romario ribeiro' , '1234' , 'masculino' 'no','4399567543');
+ ('1' ,'nao' ,'43003416804','1997-05-01','romario@gmail.com' ,'romario ribeiro' , '1234' , 'masculino' , 'nao','4399567543', '1' , '1');
  
  
  INSERT INTO mercado (id , cpf_ou_cnpj , email, fantasia , razao_social) VALUES
