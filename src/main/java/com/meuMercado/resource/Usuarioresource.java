@@ -2,6 +2,8 @@ package com.meuMercado.resource;
 
 import java.net.URI;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -11,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
+import com.meuMercado.Dto.UsuarioDTO;
 import com.meuMercado.domain.Usuario;
 import com.meuMercado.service.UsuarioService;
 
@@ -29,7 +32,8 @@ public class Usuarioresource {
 	}
 
 	@RequestMapping(method = RequestMethod.POST)
-	public ResponseEntity<Void> insert(@RequestBody Usuario obj) {
+	public ResponseEntity<Void> insert(@Valid @RequestBody UsuarioDTO objDto) {
+		Usuario obj = service.fromDTO(objDto);
 		obj = service.insert(obj);
 		URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}").buildAndExpand(obj.getId()).toUri();
 		return ResponseEntity.created(uri).build();
@@ -40,4 +44,6 @@ public class Usuarioresource {
 		obj = service.update(obj);
 		return ResponseEntity.noContent().build();
 	}
+	
+	
 }

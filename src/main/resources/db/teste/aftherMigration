@@ -39,7 +39,7 @@ INSERT INTO departamento (id, descricao) VALUES
  ('5', 'Queijo', '1');
  
  
- INSERT INTO usuario (id, club_mercado ,cpf_ou_cnpj , data_nascimento , email , nome , senha , sexo, telefone , whats, endereco_id, mercado_id) VALUES
+ INSERT INTO usuario (id, club_mercado ,cpf_ou_cnpj , data_nascimento , email , nome , senha , sexo, telefone , whats, mercado_id) VALUES
  ('1' ,'nao' ,'43003416804','1997-05-01','romario@gmail.com' ,'romario ribeiro' , '1234' , 'masculino' , 'nao','4399567543', '1');
  
  
@@ -50,9 +50,9 @@ INSERT INTO departamento (id, descricao) VALUES
  ('1' , 'acacia' , '12345678' , 'sabaudia' , 'gas' , '123' , 'espanha' , '344' , '137' , 'pr' , '1' , '1');
  
  INSERT INTO pedido (id , data_entrega , hora_entrega , preco_total_estimado , status , tipo_pagamento ,troco_para , mercado_id , usuario_id) VALUES 
- ('1' , ' 2021-08-29' , '12:00:00' , '30.00' , 'enviado' , 'dinheiro' , 'nao' , '1' , '1' );
+ ('1' , ' 2021-08-29' , '12:00:00' , '30.00' , 'enviado' , 'dinheiro' , '0' , '1' , '1' );
  
- INSERT INTO produto ( id , descricao , imagem , percentual_desconto , preco, preco_club , promocao , unidade _medida , categoria_id , mercado_id)  VALUES
+ INSERT INTO produto ( id , descricao , imagem , percentual_desconto , preco, preco_club , promocao , unidade_medida , categoria_id , mercado_id)  VALUES
  ('1' , 'fruta' , 'frutas', '5.0' , ' 31.00 , '00.00' , '5' , '13' , '1' , '1'); 
  
  INSERT INTO pedido_itens (preco_unitario , quantidade , pedido_id , produto_id) VALUES
